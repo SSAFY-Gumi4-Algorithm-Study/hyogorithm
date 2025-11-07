@@ -9,7 +9,7 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
 
-        int[][] paper = new int[n][m];
+        int[][] notebook = new int[n][m];
 
         for (int s = 0; s < k; s++) {
             st = new StringTokenizer(br.readLine());
@@ -17,7 +17,7 @@ public class Main {
             int c = Integer.parseInt(st.nextToken());
 
             int[][] sticker = new int[r][c];
-            
+
             for (int i = 0; i < r; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < c; j++) {
@@ -37,7 +37,7 @@ public class Main {
                         boolean canAttach = true;
                         for (int i = 0; i < r && canAttach; i++) {
                             for (int j = 0; j < c; j++) {
-                                if (sticker[i][j] == 1 && paper[x + i][y + j] == 1) {
+                                if (sticker[i][j] == 1 && notebook[x + i][y + j] == 1) {
                                     canAttach = false;
                                     break;
                                 }
@@ -48,7 +48,7 @@ public class Main {
                             for (int i = 0; i < r; i++) {
                                 for (int j = 0; j < c; j++) {
                                     if (sticker[i][j] == 1)
-                                        paper[x + i][y + j] = 1;
+                                        notebook[x + i][y + j] = 1;
                                 }
                             }
                             attach = true;
@@ -66,7 +66,7 @@ public class Main {
         int result = 0;
         for (int i = 0; i < n; i++)
             for (int j = 0; j < m; j++)
-                result += paper[i][j];
+                result += notebook[i][j];
 
         System.out.println(result);
     }
